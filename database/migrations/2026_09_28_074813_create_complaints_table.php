@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('operating_system');
             $table->string('device');
             $table->string('category');
+            $table->json('nature_of_complaint');
+            $table->text('network_type')->nullable();
             $table->string('documents');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();

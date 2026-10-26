@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('registrations', function (Blueprint $table) {
+        Schema::table('complaints', function (Blueprint $table) {
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->text('location_address')->nullable();
+            $table->json('nature_of_complaint');
+            $table->text('network_type')->nullable();
         });
     }
 
@@ -23,10 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('registrations', function (Blueprint $table) {
+        Schema::table('complaints', function (Blueprint $table) {
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->text('location_address')->nullable();
+            $table->json('nature_of_complaint');
+            $table->text('network_type')->nullable();
         });
     }
 };

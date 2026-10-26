@@ -95,17 +95,17 @@
 
                 </div>
 
-                <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-brand">
+                <!-- <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-brand">
                     Welcome to Rayaan Systems
-                </p>
+                </p> -->
 
                 <h1 class="text-4xl font-extrabold tracking-tight text-navy sm:text-6xl lg:text-7xl">
                     Rayaan <span class="text-brand">Systems</span>
                 </h1>
 
-                <h2 class="mt-5 text-2xl font-semibold text-slate-600 sm:text-3xl">
-                    Your Voice Matters.
-                </h2>
+                <h3 class="mt-5 text-1xl  text-slate-600 sm:text-2xl ">
+                    Complete Care for Your Computer Systems.
+                </h3>
 
                 <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                     We are committed to providing you with a better service experience.
@@ -146,14 +146,15 @@
                 </span>
 
                 <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
-                    We're here to listen and improve
+                    Keeping Your Systems Running
                 </h2>
 
                 <p class="mt-5 text-base leading-8 text-slate-600">
-                    At Rayaan Systems, we believe that every concern deserves attention.
-                    Our complaint registration portal provides a convenient way to share
-                    your feedback and report problems. Your input helps us understand
-                    your needs and continually improve our services.
+                    We are committed to keeping your computer systems running smoothly through
+                    reliable hardware repairs, technical support, and system maintenance. Our complaint registration
+                    portal makes it easy to report technical issues, request assistance, and share your feedback. Every
+                    concern matters to us, and your input helps us deliver better support, minimize system downtime, and
+                    ensure reliable performance.
                 </p>
             </div>
         </section>
@@ -168,12 +169,14 @@
                     </span>
 
                     <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
-                        A better way to be heard
+                        Reliable Support. Better Performance.
                     </h2>
 
                     <p class="mt-4 leading-7 text-slate-600">
-                        We make sharing your concerns straightforward, convenient,
-                        and focused on better service.
+                        we provide reliable computer hardware repairs, system maintenance, and technical support to keep
+                        your systems running smoothly. From troubleshooting hardware issues to resolving technical
+                        problems, we make it easy to report issues, request assistance, and get the support you need to
+                        ensure dependable system performance.
                     </p>
                 </div>
 
@@ -183,8 +186,8 @@
                     <article
                         class="group overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
                         <div class="overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80"
-                                alt="Modern professional office" loading="lazy"
+                            <img src="{{ asset('images/betterservice.png') }}" alt="Modern professional office"
+                                loading="lazy"
                                 class="h-52 w-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
@@ -197,8 +200,8 @@
                             </div>
                             <h3 class="text-lg font-bold text-navy">Better Service</h3>
                             <p class="mt-3 text-sm leading-7 text-slate-600">
-                                We strive to deliver quality service and address your
-                                concerns with care and attention.
+                                We are committed to providing reliable service and resolving every issue with care and
+                                professionalism
                             </p>
                         </div>
                     </article>
@@ -221,8 +224,7 @@
                             </div>
                             <h3 class="text-lg font-bold text-navy">Fast & Easy</h3>
                             <p class="mt-3 text-sm leading-7 text-slate-600">
-                                Submit your complaint online through a simple,
-                                convenient, and user-friendly process.
+                                Report technical issues through our simple and accessible online portal.
                             </p>
                         </div>
                     </article>
@@ -231,8 +233,7 @@
                     <article
                         class="group overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
                         <div class="overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
-                                alt="Modern city buildings" loading="lazy"
+                            <img src="{{ asset('images/improvement.jpg') }}" alt="Modern city buildings" loading="lazy"
                                 class="h-52 w-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
@@ -255,8 +256,8 @@
                     <article
                         class="group overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
                         <div class="overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80"
-                                alt="Bright and organized workspace" loading="lazy"
+                            <img src="{{ asset('images/tramsparent.png') }}" alt="Bright and organized workspace"
+                                loading="lazy"
                                 class="h-52 w-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
@@ -269,8 +270,7 @@
                             </div>
                             <h3 class="text-lg font-bold text-navy">Trust & Transparency</h3>
                             <p class="mt-3 text-sm leading-7 text-slate-600">
-                                We value your feedback and aim to handle every concern
-                                responsibly and transparently.
+                                we believe in honest communication, reliable technical support, and transparent service.
                             </p>
                         </div>
                     </article>
@@ -293,8 +293,7 @@
                             Have a complaint?
                         </h2>
                         <p class="mt-4 max-w-xl leading-7 text-slate-600">
-                            Your feedback matters to us. Tell us about your concern
-                            and help us make your experience better.
+                            Having a system problem? Tell us about your issue, and our team will help you fix it.
                         </p>
                     </div>
 

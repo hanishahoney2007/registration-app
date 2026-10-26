@@ -18,6 +18,8 @@ class Complaint extends Model
         'modal',
         'serial_number',
         'operating_system',
+        'nature_of_complaint',
+        'network_type',
         'latitude',
         'longitude',
         'location_address',
@@ -26,6 +28,7 @@ class Complaint extends Model
     {
         return [
             'documents' => 'array',
+            'nature_of_complaint' => 'array',
         ];
     }
 }

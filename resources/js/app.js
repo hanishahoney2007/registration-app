@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'input[name="category"]'
     );
     const companyField = document.getElementById('company_field');
-    const companyInput = document.getElementById('company_name');
-    //const isCorporate = categorySelect.value === 'corporate';
+   
     function toggleCompanyField() {
         const categoryRadio = document.querySelector(
             'input[name="category"]:checked'
@@ -29,9 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('CHANGE EVENT FIRED');
             toggleCompanyField();
         });
-        });
-     const successMessage = document.getElementById('successMessage');
+    });
 
+    /************Device selectbox************** */
+
+    const networkField = document.getElementById('network_field');
+    function toggleDeviceField(){
+        const deviceSelect = document.querySelector('#device');
+        if (deviceSelect && deviceSelect.value === 'network') {
+            networkField.classList.remove('hidden');
+        } else {
+            networkField.classList.add('hidden');
+        }
+    }
+    toggleDeviceField();
+
+    const deviceSelect = document.querySelector('#device');
+    deviceSelect.addEventListener('change', (event) => {
+        // Both ways work perfectly:
+        const selectedValue = event.target.value; 
+        console.log("Selected value:", selectedValue);
+        toggleDeviceField();
+    });
+
+    const successMessage = document.getElementById('successMessage');
     if (successMessage) {
         setTimeout(function () {
             successMessage.remove();

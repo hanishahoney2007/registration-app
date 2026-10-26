@@ -9,6 +9,7 @@
     <title>Complaints Registration Form</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
 </head>
 
 <body class="min-h-screen bg-gray-100">
@@ -186,7 +187,7 @@
                             </label>
 
                             <select name="device" id="device" required class="w-full border rounded-lg px-4 py-3
-                                        focus:ring-2 focus:ring-blue-500
+                                        focus:ring-2 focus:ring-blue-500 border-gray-300
                                         focus:outline-none">
 
                                 <option value="">Select a device</option>
@@ -195,12 +196,20 @@
                                     Desktop
                                 </option>
 
-                                <option value="network" {{ old('device') == 'network' ? 'selected' : '' }}>
-                                    Network
-                                </option>
-
                                 <option value="laptop" {{ old('device') == 'laptop' ? 'selected' : '' }}>
                                     Laptop
+                                </option>
+
+                                <option value="laptop" {{ old('device') == 'server' ? 'selected' : '' }}>
+                                    Server
+                                </option>
+
+                                <option value="laptop" {{ old('device') == 'printer' ? 'selected' : '' }}>
+                                    Printer
+                                </option>
+
+                                <option value="network" {{ old('device') == 'network' ? 'selected' : '' }}>
+                                    Network
                                 </option>
 
 
@@ -297,45 +306,131 @@
 
                         {{-- Operating System: Single select dropdown --}}
                         <div>
-                            <label for="operating_system" class="block text-sm font-medium mb-2">
+                            <label for="operating_system" class="mb-2 block text-sm font-medium text-gray-700">
                                 Operating System <span class="text-red-500">*</span>
                             </label>
 
-                            <select name="operating_system" id="operating_system" required class="w-full border rounded-lg px-4 py-3
-                                        focus:ring-2 focus:ring-blue-500
-                                        focus:outline-none">
+                            <input type="text" name="operating_system" id="operating_system" required
+                                value="{{old('operating_system')}}"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
 
-                                <option value="">Select a operating System</option>
 
-                                <option value="win7" {{ old('operatingSys') == 'win7' ? 'selected' : '' }}>
-                                    Windows 7
-                                </option>
-
-                                <option value="win8" {{ old('operatingSys') == 'win8' ? 'selected' : '' }}>
-                                    Windows 8
-                                </option>
-
-                                <option value="Win10" {{ old('operatingSys') == 'win10' ? 'selected' : '' }}>
-                                    Windows 10
-                                </option>
-
-                                <option value="Win11" {{ old('operatingSys') == 'win11' ? 'selected' : '' }}>
-                                    Windows 11
-                                </option>
-                            </select>
-
-                            @error('device')
+                            @error('operating_system')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
+                        <div class="w-full min-w-0">
+                            <div class="hidden" id="network_field">
+                                <label for="network_type" class="mb-2 block text-sm font-medium text-gray-700">
+                                    Network Type <span class="text-red-500">*</span>
+                                </label>
 
+                                <select name="network_type" id="network_type" class="w-full border rounded-lg px-4 py-3
+                                        focus:ring-2 focus:ring-blue-500 border-gray-300
+                                        focus:outline-none">
 
+                                    <option value="">Select a network Type</option>
+
+                                    <option value="win7" {{ old('networkType') == 'lan' ? 'selected' : '' }}>
+                                        Lan
+                                    </option>
+
+                                    <option value="win8" {{ old('network_type') == 'wifi' ? 'selected' : '' }}>
+                                        Wi-Fi
+                                    </option>
+
+                                    <option value="Win10" {{ old('network_type') == 'router' ? 'selected' : '' }}>
+                                        Router
+                                    </option>
+
+                                    <option value="Win11" {{ old('network_type') == 'switch' ? 'selected' : '' }}>
+                                        Switch
+                                    </option>
+                                    <option value="Win11" {{ old('network_type') == 'firewall' ? 'selected' : '' }}>
+                                        Firewall
+                                    </option>
+                                    <option value="Win11" {{ old('network_type') == 'other' ? 'selected' : '' }}>
+                                        Other
+                                    </option>
+                                </select>
+
+                                @error('network_type')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div>
+                            <label for="nature_of_complaint" class="mb-2 block text-sm font-medium text-gray-700">
+                                Nature of Complaint <span class="text-red-500">*</span>
+                            </label>
+
+                            <select name="nature_of_complaint[]" id="nature_of_complaint" class=" " multiple>
+
+                                <option value="">Select a nature of complaint</option>
+
+                                <option value="notstarting" {{ old('networkType') == 'notstarting' ? 'selected' : '' }}>
+                                    System Not Starting
+                                </option>
+
+                                <option value="slow" {{ old('networkType') == 'slow' ? 'selected' : '' }}>
+                                    Slow Performance
+                                </option>
+
+                                <option value="osissue" {{ old('networkType') == 'osissue' ? 'selected' : '' }}>
+                                    OS / Software Issue
+                                </option>
+
+                                <option value="malware" {{ old('networkType') == 'malware' ? 'selected' : '' }}>
+                                    Virus / Malware
+                                </option>
+                                <option value="recovery" {{ old('networkType') == 'recovery' ? 'selected' : '' }}>
+                                    Data Backup / Recovery
+                                </option>
+                                <option value="hardware" {{ old('networkType') == 'hardware' ? 'selected' : '' }}>
+                                    Hardware Failure
+                                </option>
+
+                                <option value="keyboard" {{ old('networkType') == 'keyboard' ? 'selected' : '' }}>
+                                    Keyboard / Display / Battery Issue
+                                </option>
+
+                                <option value="connectivity"
+                                    {{ old('networkType') == 'connectivity' ? 'selected' : '' }}>
+                                    Internet Connectivity
+                                </option>
+
+                                <option value="wifipblm" {{ old('networkType') == 'wifipblm' ? 'selected' : '' }}>
+                                    LAN / Wi-Fi Problem
+                                </option>
+                                <option value="switch" {{ old('networkType') == 'switch' ? 'selected' : '' }}>
+                                    Router / Switch Configuration
+                                </option>
+                                <option value="server" {{ old('networkType') == 'server' ? 'selected' : '' }}>
+                                    Server / Network Down
+                                </option>
+
+                                <option value="printer" {{ old('networkType') == 'printer' ? 'selected' : '' }}>
+                                    Email / Printer Sharing Issue
+                                </option>
+                                <option value="installation"
+                                    {{ old('networkType') == 'installation' ? 'selected' : '' }}>
+                                    Installation / Configuration
+                                </option>
+                                <option value="other" {{ old('networkType') == 'other' ? 'selected' : '' }}>
+                                    Other
+                                </option>
+                            </select>
+
+                            @error('nature_of_complaint')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
 
                         {{-- Complaints --}}
                         <div class="mb-8 w-full md:col-span-2">
 
                             <label for="complaints" class="mb-2 block text-sm font-medium text-gray-700">
-                                Complaints summary <span class="text-red-500">*</span>
+                                Detailed Description of the Problem <span class="text-red-500">*</span>
                             </label>
 
                             <textarea id="complaints" name="complaints" rows="8" cols="10"
@@ -434,102 +529,113 @@
 
     </div>
     <script>
-    window.googleMapsApiKey = "{{ config('services.google_maps.key') }}";
-    console.log("rrrrrrrrrrrrrrrrrr");
+        window.googleMapsApiKey = "{{ config('services.google_maps.key') }}";
+        console.log("rrrrrrrrrrrrrrrrrr");
     </script>
 
     <script
         src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.key') }}&libraries=places&loading=async&callback=initMap"
         async>
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+
 
     <script>
-    (function() {
-        const MAX_FILES = 5;
-        const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
-        const ALLOWED = ['pdf', 'jpg', 'jpeg', 'png'];
+        (function() {
+            const MAX_FILES = 5;
+            const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
+            const ALLOWED = ['pdf', 'jpg', 'jpeg', 'png'];
 
-        const input = document.getElementById('documents');
-        const zone = document.getElementById('dropzone');
-        const list = document.getElementById('file-list');
-        const errorEl = document.getElementById('file-error');
-        let files = [];
+            const input = document.getElementById('documents');
+            const zone = document.getElementById('dropzone');
+            const list = document.getElementById('file-list');
+            const errorEl = document.getElementById('file-error');
+            let files = [];
 
-        function showError(msg) {
-            errorEl.textContent = msg;
-            errorEl.classList.toggle('hidden', !msg);
-        }
+            function showError(msg) {
+                errorEl.textContent = msg;
+                errorEl.classList.toggle('hidden', !msg);
+            }
 
-        function formatSize(bytes) {
-            return bytes < 1024 * 1024 ?
-                (bytes / 1024).toFixed(0) + ' KB' :
-                (bytes / 1024 / 1024).toFixed(1) + ' MB';
-        }
+            function formatSize(bytes) {
+                return bytes < 1024 * 1024 ?
+                    (bytes / 1024).toFixed(0) + ' KB' :
+                    (bytes / 1024 / 1024).toFixed(1) + ' MB';
+            }
 
-        function sync() {
-            const dt = new DataTransfer();
-            files.forEach(f => dt.items.add(f));
-            input.files = dt.files;
+            function sync() {
+                const dt = new DataTransfer();
+                files.forEach(f => dt.items.add(f));
+                input.files = dt.files;
 
-            list.innerHTML = '';
-            files.forEach((f, i) => {
-                const li = document.createElement('li');
-                li.className =
-                    'flex items-center justify-between rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm';
+                list.innerHTML = '';
+                files.forEach((f, i) => {
+                    const li = document.createElement('li');
+                    li.className =
+                        'flex items-center justify-between rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm';
 
-                const name = document.createElement('span');
-                name.className = 'truncate text-gray-700';
-                name.textContent = f.name + ' (' + formatSize(f.size) + ')';
+                    const name = document.createElement('span');
+                    name.className = 'truncate text-gray-700';
+                    name.textContent = f.name + ' (' + formatSize(f.size) + ')';
 
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'ml-4 text-red-500 hover:text-red-700';
-                btn.textContent = 'Remove';
-                btn.addEventListener('click', () => {
-                    files.splice(i, 1);
-                    showError('');
-                    sync();
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'ml-4 text-red-500 hover:text-red-700';
+                    btn.textContent = 'Remove';
+                    btn.addEventListener('click', () => {
+                        files.splice(i, 1);
+                        showError('');
+                        sync();
+                    });
+
+                    li.append(name, btn);
+                    list.appendChild(li);
                 });
+            }
 
-                li.append(name, btn);
-                list.appendChild(li);
-            });
-        }
+            function addFiles(newFiles) {
+                const problems = [];
+                Array.from(newFiles).forEach(f => {
+                    const ext = f.name.split('.').pop().toLowerCase();
+                    if (!ALLOWED.includes(ext)) {
+                        problems.push(f.name + ': only PDF, JPG and PNG files are allowed.');
+                    } else if (f.size > MAX_SIZE) {
+                        problems.push(f.name + ': exceeds the 5 MB limit.');
+                    } else if (files.length >= MAX_FILES) {
+                        problems.push('You can upload a maximum of ' + MAX_FILES + ' files.');
+                    } else if (!files.some(x => x.name === f.name && x.size === f.size)) {
+                        files.push(f);
+                    }
+                });
+                showError(problems.length ? Array.from(new Set(problems)).join(' ') : '');
+                sync();
+            }
 
-        function addFiles(newFiles) {
-            const problems = [];
-            Array.from(newFiles).forEach(f => {
-                const ext = f.name.split('.').pop().toLowerCase();
-                if (!ALLOWED.includes(ext)) {
-                    problems.push(f.name + ': only PDF, JPG and PNG files are allowed.');
-                } else if (f.size > MAX_SIZE) {
-                    problems.push(f.name + ': exceeds the 5 MB limit.');
-                } else if (files.length >= MAX_FILES) {
-                    problems.push('You can upload a maximum of ' + MAX_FILES + ' files.');
-                } else if (!files.some(x => x.name === f.name && x.size === f.size)) {
-                    files.push(f);
-                }
-            });
-            showError(problems.length ? Array.from(new Set(problems)).join(' ') : '');
-            sync();
-        }
+            input.addEventListener('change', () => addFiles(input.files));
 
-        input.addEventListener('change', () => addFiles(input.files));
+            ['dragenter', 'dragover'].forEach(evt =>
+                zone.addEventListener(evt, e => {
+                    e.preventDefault();
+                    zone.classList.add('border-blue-500', 'bg-blue-50');
+                })
+            );
+            ['dragleave', 'drop'].forEach(evt =>
+                zone.addEventListener(evt, e => {
+                    e.preventDefault();
+                    zone.classList.remove('border-blue-500', 'bg-blue-50');
+                })
+            );
+            zone.addEventListener('drop', e => addFiles(e.dataTransfer.files));
+        })();
 
-        ['dragenter', 'dragover'].forEach(evt =>
-            zone.addEventListener(evt, e => {
-                e.preventDefault();
-                zone.classList.add('border-blue-500', 'bg-blue-50');
-            })
-        );
-        ['dragleave', 'drop'].forEach(evt =>
-            zone.addEventListener(evt, e => {
-                e.preventDefault();
-                zone.classList.remove('border-blue-500', 'bg-blue-50');
-            })
-        );
-        zone.addEventListener('drop', e => addFiles(e.dataTransfer.files));
-    })();
+        new TomSelect("#nature_of_complaint", {
+            plugins: ['remove_button'],
+            maxOptions: 100,
+            closeAfterSelect: false,
+            hideSelected: true,
+            placeholder: "Select complaint types...",
+            create: false
+        });
     </script>
 
 </body>
